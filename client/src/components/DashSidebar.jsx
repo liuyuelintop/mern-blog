@@ -8,7 +8,7 @@ export default function DashSidebar() {
   const dispatch = useDispatch();
   const location = useLocation();
   const [tab, setTab] = useState();
-  const {currentUser} = useSelector((state)=>state.user);
+  const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const tabFromUrl = urlParams.get('tab');
@@ -28,7 +28,7 @@ export default function DashSidebar() {
         dispatch(signoutSuccess());
       }
     } catch (error) {
-      console.lof(error.message);
+      console.log(error.message);
     }
   };
   return (
@@ -36,18 +36,18 @@ export default function DashSidebar() {
       <Sidebar.Items>
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
           <Link to='/dashboard?tab=profile'>
-            <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={currentUser.isAdmin?'Admin':'User'} labelColor='dark' as='div'>
+            <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={currentUser.isAdmin ? 'Admin' : 'User'} labelColor='dark' as='div'>
               Profile
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
             <Link to='/dashboard?tab=posts'>
-            <Sidebar.Item active={tab === 'posts'} icon={HiDocumentText} label={'Posts'} labelColor='dark' as='div'>
-              Posts
-            </Sidebar.Item>
-          </Link>
+              <Sidebar.Item active={tab === 'posts'} icon={HiDocumentText} label={'Posts'} labelColor='dark' as='div'>
+                Posts
+              </Sidebar.Item>
+            </Link>
           )}
-          
+
           <Sidebar.Item onClick={handleSignout} active icon={HiArrowSmRight} className='cursor-pointer'>
             Sign Out
           </Sidebar.Item>
