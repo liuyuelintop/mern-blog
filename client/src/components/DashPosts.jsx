@@ -91,7 +91,7 @@ export default function DashPosts() {
                 <Table.Row className="bg-white dark:bg-gray-800 dark:border-gray-700">
                   <Table.Cell>{new Date(post.updatedAt).toLocaleDateString()}</Table.Cell>
                   <Table.Cell>
-                    <Link to={`/posts/${post.slug}`}>
+                    <Link to={`/post/${post.slug}`}>
                       <img
                         src={post.image}
                         alt={post.title}
@@ -100,7 +100,7 @@ export default function DashPosts() {
                     </Link>
                   </Table.Cell>
                   <Table.Cell>
-                    <Link className="font-medium text-gray-900 dark:text-white " to={`/posts/${post.slug}`}>{post.title}</Link>
+                    <Link className="font-medium text-gray-900 dark:text-white " to={`/post/${post.slug}`}>{post.title}</Link>
                   </Table.Cell>
                   <Table.Cell>{post.category}</Table.Cell>
                   <Table.Cell>
